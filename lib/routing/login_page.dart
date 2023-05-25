@@ -121,7 +121,6 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.05,
                         ),
-                        //! not working
                         Text(errorText,
                             style: const TextStyle(
                               fontSize: 13,

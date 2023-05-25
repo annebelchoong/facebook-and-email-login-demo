@@ -28,7 +28,6 @@ class _HomeFBPageState extends State<HomeFBPage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     FacebookAuth.instance.logOut().then((value) {
       setState(() {
-        // userObj = {};
         prefs.clear();
       });
     });

@@ -57,38 +57,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      // return false
       onWillPop: () async => false,
-      // onWillPop: () async {
-      //   final shouldPop = await showDialog<bool>(
-      //     context: context,
-      //     builder: (context) {
-      //       return AlertDialog(
-      //         title: const Text('Exit'),
-      //         content: const Text('Are you sure you want to exit the app?'),
-      //         actions: [
-      //           TextButton(
-      //             onPressed: () {
-      //               Navigator.pop(context, true);
-      //             },
-      //             child: const Text('Yes'),
-      //           ),
-      //           TextButton(
-      //             onPressed: () {
-      //               Navigator.pop(context, false);
-      //             },
-      //             child: const Text(
-      //               'No',
-      //               style: TextStyle(color: Colors.red),
-      //             ),
-      //           ),
-      //         ],
-      //       );
-      //     },
-      //   );
-      //   return shouldPop!;
-      // },
-
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Home Page'),
@@ -173,62 +142,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-// FutureBuilder(
-          //   future: _getList(),
-          //   builder: (context, snapshot) {
-          // if (snapshot.connectionState == ConnectionState.waiting) {
-          //   return Center(
-          //     child: CircularProgressIndicator(),
-          //   );
-          // } else if (snapshot.hasError) {
-          //   return Text('Error: ${snapshot.error}');
-          // } else if (snapshot.hasData) {
-          //   debugPrint("snapshot data: ${snapshot.data}");
-          //   return ListView.builder(
-          //     itemCount: lists.length,
-          //     itemBuilder: (context, index) {
-          //       return ListTile(
-          //         title: Text(lists[index].listName),
-          //         onTap: () {
-          //           // toast the clicked item
-          //           ScaffoldMessenger.of(context).showSnackBar(
-          //             SnackBar(
-          //               content: Text("Name: ${lists[index].listName} \n"
-          //                   "Distance: ${lists[index].distance}"),
-          //             ),
-          //           );
-          //         },
-          //         subtitle: Text(lists[index].distance.toString()),
-          //       );
-          //     },
-          //   );
-          // } else {
-          //   return Text('No data available.');
-          // }
-          //     if (snapshot.connectionState == ConnectionState.done) {
-          //       debugPrint("snapshot data: $snapshot");
-          //       return ListView.builder(
-          //         itemCount: lists.length,
-          //         itemBuilder: (context, index) {
-          //           return ListTile(
-          //             title: Text(lists[index].listName),
-          //             onTap: () {
-          //               // toast the clicked item
-          //               ScaffoldMessenger.of(context).showSnackBar(
-          //                 SnackBar(
-          //                   content: Text("Name: ${lists[index].listName} \n"
-          //                       "Distance: ${lists[index].distance}"),
-          //                 ),
-          //               );
-          //             },
-          //             subtitle: Text(lists[index].distance.toString()),
-          //           );
-          //         },
-          //       );
-          //     } else {
-          //       return const Center(
-          //         child: CircularProgressIndicator(),
-          //       );
-          //     }
-          //   },
-          // ),

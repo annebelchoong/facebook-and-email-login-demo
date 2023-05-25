@@ -1,5 +1,5 @@
-import 'package:advisory_assessment/routing/home_fb_page.dart';
-import 'package:advisory_assessment/routing/login_page.dart';
+import 'package:advisory_assessment/screens/home_fb_page.dart';
+import 'package:advisory_assessment/screens/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -30,20 +30,6 @@ class _StartPageState extends State<StartPage> {
         });
       });
     });
-    var fbEmail = prefs.get("email");
-    var fbPassword = prefs.get("password");
-    var fbPic = prefs.get("picture");
-    debugPrint("Email: $fbEmail");
-    debugPrint("Password: $fbPassword");
-    debugPrint("Picture: $fbPic");
-
-    // var data = {
-    //   'email': fbEmail,
-    //   'password': fbPassword,
-    // };
-
-    // var res = await CallApi().postData(data, 'login');
-    // var status = res.statusCode;
   }
 
   _ifUserIsLoggedIn() async {

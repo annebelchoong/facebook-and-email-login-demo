@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:advisory_assessment/routing/home_page.dart';
+import 'package:advisory_assessment/screens/home_page.dart';
 import 'package:advisory_assessment/service/api_service.dart';
 import 'package:advisory_assessment/util/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -30,13 +30,12 @@ class _LoginPageState extends State<LoginPage> {
 
     var res = await CallApi().postData(data, 'login');
     var responseData = json.decode(res.body);
-    var status = res.statusCode;
+    int status = res.statusCode;
+    debugPrint('status: ${res.statusCode}');
+    var id = responseData['id'];
+    var token = responseData['token'];
 
-    if (status == 200) {
-      var id = responseData['id'];
-      var token = responseData['token'];
-
-      // check when user is logged in then only store id and token
+    if (status == 200 && id != null && token != null) {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setBool("isLoggedIn", true);
       var isLoggedIn = prefs.getBool("isLoggedIn");
@@ -55,9 +54,12 @@ class _LoginPageState extends State<LoginPage> {
           ),
         );
       }
-    } else if (status == 400) {
-      errorText = "Invalid email or password";
-      debugPrint(status['message']);
+    } else {
+      debugPrint('status: ${res.statusCode}');
+      setState(() {
+        errorText = "Invalid email or password";
+      });
+      // debugPrint(status['message']);
     }
   }
 
@@ -121,11 +123,14 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.05,
                         ),
-                        Text(errorText,
-                            style: const TextStyle(
-                              fontSize: 13,
-                              color: Colors.red,
-                            )),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Text(errorText,
+                              style: const TextStyle(
+                                fontSize: 13,
+                                color: Colors.red,
+                              )),
+                        ),
                         Center(
                           child: TextFormField(
                             controller: emailController,
@@ -211,6 +216,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
+                                  errorText = '';
                                   // pop keyboard off
                                   FocusScope.of(context).unfocus();
                                   _login();

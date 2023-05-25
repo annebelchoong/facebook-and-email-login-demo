@@ -1,5 +1,5 @@
-import 'package:advisory_assessment/routing/home_page.dart';
-import 'package:advisory_assessment/routing/start_page.dart';
+import 'package:advisory_assessment/screens/home_page.dart';
+import 'package:advisory_assessment/screens/start_page.dart';
 import 'package:advisory_assessment/util/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';

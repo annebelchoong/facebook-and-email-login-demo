@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource>
+
+    <string name="app_name">advisory_assessment</string>
+    <string name="facebook_app_id">807571814274387</string>
+    <string name="fb_login_protocol_scheme">fb807571814274387</string>
+    <string name="facebook_client_token">6b2680d9d1a1c1f82691264fdf1c1ad4</string>
+
+</resource>

@@ -59,7 +59,6 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         errorText = "Invalid email or password";
       });
-      // debugPrint(status['message']);
     }
   }
 
